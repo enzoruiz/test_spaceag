@@ -1,3 +1,7 @@
 # -*- env -*-
 DJANGO_SECRET_KEY=my-secret-key
 DJANGO_CONFIGURATION=Development
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=
+DATABASE_HOST=db
+POSTGRES_DB=postgres

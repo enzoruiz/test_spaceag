@@ -10,15 +10,14 @@ class Development(Base):
 
     SECRET_KEY = values.SecretValue()
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': '',
-            'HOST': 'db',
-            'PORT': '5432',
-        }
-    }
+    POSTGRES_USER = os.environ.get('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
+    DATABASE_HOST = os.environ.get('DATABASE_HOST')
+    POSTGRES_DB = os.environ.get('POSTGRES_DB')
+
+    DATABASE_URL = 'postgis://%s:%s@%s/%s' % (
+        POSTGRES_USER, POSTGRES_PASSWORD, DATABASE_HOST, POSTGRES_DB
+    )
+    DATABASES = values.DatabaseURLValue(DATABASE_URL)
 
     ALLOWED_HOSTS = ['*']

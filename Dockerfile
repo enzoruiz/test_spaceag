@@ -7,6 +7,7 @@ WORKDIR /var/www/spaceag
 
 COPY ./ .
 
+RUN pip install --upgrade pip
 RUN pip install -r requirements/dev.txt
 RUN pip install honcho
 
