@@ -1,0 +1,9 @@
+# Framework
+Django==2.2.1
+
+# Better configuration
+django-configurations==2.1
+
+# Postgres
+psycopg2==2.7.3.1
+dj-database-url==0.5.0
