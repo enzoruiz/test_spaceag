@@ -10,10 +10,10 @@ class Development(Base):
 
     SECRET_KEY = values.SecretValue()
 
-    POSTGRES_USER = os.environ.get('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
-    DATABASE_HOST = os.environ.get('DATABASE_HOST')
-    POSTGRES_DB = os.environ.get('POSTGRES_DB')
+    POSTGRES_USER = os.environ.get('POSTGRES_USER', 'postgres')
+    POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', '')
+    DATABASE_HOST = os.environ.get('DATABASE_HOST', 'localhost')
+    POSTGRES_DB = os.environ.get('POSTGRES_DB', 'postgres')
 
     DATABASE_URL = 'postgis://%s:%s@%s/%s' % (
         POSTGRES_USER, POSTGRES_PASSWORD, DATABASE_HOST, POSTGRES_DB

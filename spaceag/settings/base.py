@@ -12,6 +12,7 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'apps.client'
     ]
 
     MIDDLEWARE = [
@@ -74,3 +75,10 @@ class Base(Configuration):
 
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     MEDIA_URL = '/media/'
+
+    LOGIN_URL = 'login'
+    LOGIN_REDIRECT_URL = '/'
+    LOGOUT_REDIRECT_URL = 'login'
+
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')

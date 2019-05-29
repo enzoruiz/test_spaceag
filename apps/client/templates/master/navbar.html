@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Navbar</a>
+        <form class="form-inline" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </nav>
+{% endif %}
