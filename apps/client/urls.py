@@ -5,13 +5,17 @@ from django.contrib.auth.views import (
     PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView,
     PasswordResetCompleteView
 )
-from .views import HomeView, SignupView
+from .views import HomeView, UserCreate
 
 urlpatterns = [
-    path('login', LoginView.as_view(template_name='login.html'), name='login'),
+    path(
+        'login', LoginView.as_view(
+            template_name='login.html', redirect_authenticated_user=True
+        ), name='login'
+    ),
     path('logout', LogoutView.as_view(), name='logout'),
     path('', login_required(HomeView.as_view()), name='home'),
-    path('signup', SignupView.as_view(), name='signup'),
+    path('signup', UserCreate.as_view(), name='signup'),
     path(
         'change-password/', PasswordChangeView.as_view(),
         name='password_change'

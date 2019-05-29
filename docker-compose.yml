@@ -12,7 +12,7 @@ services:
         depends_on:
           - db
         volumes:
-            - /static:/var/www/spaceag/static
+            - /static:/static
     nginx:
         restart: always
         build: ./configuration/development/nginx
@@ -21,4 +21,4 @@ services:
         depends_on:
           - web
         volumes:
-            - /static:/var/www/spaceag/static
+            - /static:/static
