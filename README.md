@@ -1,6 +1,6 @@
 # Test Space AG
 
-## Puesta en Marcha
+## Run
 
 ```
 docker-compose up -d --build
@@ -11,6 +11,7 @@ docker-compose up -d --build
 ### Inside docker container
 ```
 docker exec -ti ID_CONTAINER bash
+export DJANGO_SECRET_KEY=123
 pytest
 ```
 
