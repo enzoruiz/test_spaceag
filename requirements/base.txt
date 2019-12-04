@@ -1,5 +1,5 @@
 # Framework
-Django==2.2.1
+Django==2.2.8
 
 # Better configuration
 django-configurations==2.1
